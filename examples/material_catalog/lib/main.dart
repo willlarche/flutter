@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
-import 'catalog/app.dart' show MyApp;
+import 'catalog/app.dart' show MaterialCatalogApp;
 
-void main() => runApp(new MyApp());
+void main() => runApp(new MaterialCatalogApp());
 
