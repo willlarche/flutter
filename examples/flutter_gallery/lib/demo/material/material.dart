@@ -16,6 +16,7 @@ export 'elevation_demo.dart';
 export 'expansion_panels_demo.dart';
 export 'grid_list_demo.dart';
 export 'icons_demo.dart';
+export 'image_list_demo.dart';
 export 'leave_behind_demo.dart';
 export 'list_demo.dart';
 export 'menu_demo.dart';

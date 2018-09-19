@@ -259,6 +259,14 @@ List<GalleryDemo> _buildGalleryDemos() {
       buildRoute: (BuildContext context) => IconsDemo(),
     ),
     GalleryDemo(
+      title: 'Image Lists',
+      subtitle: 'Shrine Products',
+      icon: GalleryIcons.list_alt,
+      category: _kMaterialComponents,
+      routeName: ImageListPrototypeDemo.routeName,
+      buildRoute: (BuildContext context) => ImageListPrototypeDemo(),
+    ),
+    GalleryDemo(
       title: 'Lists',
       subtitle: 'Scrolling list layouts',
       icon: GalleryIcons.list_alt,
