@@ -326,11 +326,11 @@ class _BottomNavigationTile extends StatelessWidget {
     switch (type) {
       case BottomNavigationBarType.fixed:
         size = 1;
-        label = _buildFixedLabel();
+        label = item.title == null ? Container() : _buildFixedLabel();
         break;
       case BottomNavigationBarType.shifting:
         size = (flex * 1000.0).round();
-        label = _buildShiftingLabel();
+        label = item.title == null ? Container() : _buildShiftingLabel();
         break;
     }
     return Expanded(
