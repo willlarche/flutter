@@ -259,10 +259,10 @@ class _BottomNavigationTile extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       heightFactor: 1.0,
       child: Container(
-        margin: const EdgeInsets.only(bottom: _kBottomMargin),
+        margin: item.showLabel ? const EdgeInsets.only(bottom: _kBottomMargin) : const EdgeInsets.all(0.0),
         child: DefaultTextStyle.merge(
           style: TextStyle(
-            fontSize: _kActiveFontSize,
+            fontSize: item.showLabel ? _kActiveFontSize : 0.0,
             color: colorTween.evaluate(animation),
           ),
           // The font size should grow here when active, but because of the way
@@ -278,7 +278,7 @@ class _BottomNavigationTile extends StatelessWidget {
               ),
             ),
             alignment: Alignment.bottomCenter,
-            child: item.title,
+            child: item.showLabel ? item.title : Text(item.label),
           ),
         ),
       ),
@@ -304,8 +304,8 @@ class _BottomNavigationTile extends StatelessWidget {
           alwaysIncludeSemantics: true,
           opacity: animation,
           child: DefaultTextStyle.merge(
-            style: const TextStyle(
-              fontSize: _kActiveFontSize,
+            style: TextStyle(
+              fontSize:  item.showLabel ? _kActiveFontSize : 0.0,
               color: Colors.white,
             ),
             child: item.title,
@@ -326,11 +326,11 @@ class _BottomNavigationTile extends StatelessWidget {
     switch (type) {
       case BottomNavigationBarType.fixed:
         size = 1;
-        label = item.title == null ? Container() : _buildFixedLabel();
+        label = _buildFixedLabel();
         break;
       case BottomNavigationBarType.shifting:
         size = (flex * 1000.0).round();
-        label = item.title == null ? Container() : _buildShiftingLabel();
+        label = _buildShiftingLabel();
         break;
     }
     return Expanded(
