@@ -28,11 +28,17 @@ class BottomNavigationBarItem {
     Widget activeIcon,
     this.backgroundColor,
 <<<<<<< HEAD
+<<<<<<< HEAD
   }) : activeIcon = activeIcon ?? icon,
 =======
   }) : this.activeIcon = activeIcon ?? icon,
 >>>>>>> Have BottomNavigationBarfixed with no titles. -m Resolve
        assert(icon != null);
+=======
+  }) : activeIcon = activeIcon ?? icon,
+       assert(icon != null),
+       assert(title != null);
+>>>>>>> Revert title attr to be necessary.
 
   /// The icon of the item.
   ///
