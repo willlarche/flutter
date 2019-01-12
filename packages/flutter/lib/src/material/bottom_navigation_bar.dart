@@ -261,30 +261,36 @@ class _BottomNavigationTile extends StatelessWidget {
   }
 
   Widget _buildFixedLabel() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      heightFactor: this.heightFactor,
-      child: Container(
-        margin: item.showLabel ? const EdgeInsets.only(bottom: _kBottomMargin) : const EdgeInsets.all(0.0),
-        child: DefaultTextStyle.merge(
-          style: TextStyle(
-            fontSize: item.showLabel ? _kActiveFontSize : 0.0,
-            color: colorTween.evaluate(animation),
-          ),
-          // The font size should grow here when active, but because of the way
-          // font rendering works, it doesn't grow smoothly if we just animate
-          // the font size, so we use a transform instead.
-          child: Transform(
-            transform: Matrix4.diagonal3(
-              Vector3.all(
-                Tween<double>(
-                  begin: _kInactiveFontSize / _kActiveFontSize,
-                  end: 1.0,
-                ).evaluate(animation),
+    return Semantics(
+      label: item.title.data,
+      child: ExcludeSemantics(
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          heightFactor: this.heightFactor,
+          child: Container(
+            margin: item.showLabel ? const EdgeInsets.only(bottom: _kBottomMargin) : const EdgeInsets.all(0.0),
+            child: DefaultTextStyle.merge(
+              style: TextStyle(
+                fontSize: item.showLabel ? _kActiveFontSize : 0.0,
+                color: colorTween.evaluate(animation),
+              ),
+              // The font size should grow here when active, but because of the way
+              // font rendering works, it doesn't grow smoothly if we just animate
+              // the font size, so we use a transform instead.
+              child: Transform(
+                transform: Matrix4.diagonal3(
+                  Vector3.all(
+                    Tween<double>(
+                      begin: _kInactiveFontSize / _kActiveFontSize,
+                      end: 1.0,
+                    ).evaluate(animation),
+                  ),
+                ),
+                alignment: Alignment.bottomCenter,
+//            child: item.showLabel ? item.title : Text(item.title.data ?? ''),
+                child: Text(item.title.data ?? ''),
               ),
             ),
-            alignment: Alignment.bottomCenter,
-            child: item.showLabel ? item.title : Text(item.title.data ?? ''),
           ),
         ),
       ),

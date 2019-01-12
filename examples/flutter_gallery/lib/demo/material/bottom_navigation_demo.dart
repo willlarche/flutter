@@ -21,6 +21,7 @@ class NavigationIconView {
          activeIcon: activeIcon,
          title: Text(title),
          backgroundColor: color,
+         showLabel: false,
        ),
        controller = AnimationController(
          duration: kThemeAnimationDuration,
